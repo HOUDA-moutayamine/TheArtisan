@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Comment</th>
+    </tr>
+    <tr th:each="comment : ${comments}">
+        <td th:text="${comment.text}"></td>
+    </tr>
+</table>
+<form th:action="@{/commentshouda/comm}" id="add-comment-form" method="post">
+    <textarea name="text"></textarea>
+    <button type="submit">Add Comment</button>
+</form>
+<script type="text/javascript">
+$("#add-comment-form").submit(function (event) {
+    event.preventDefault();
+    var formData = $(this).serialize();
+    $.ajax({
+        type: 'POST',
+        url: '/comments',
+        data: formData,
+        success: function (data) {
+            // Update the comments list on the page
+        },
+        error: function (data) {
+            // Show an error message
+        }
+    });
+});
+
+</script>
+</body>
+</html>

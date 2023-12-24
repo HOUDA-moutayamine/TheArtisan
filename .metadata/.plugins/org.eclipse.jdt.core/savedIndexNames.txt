@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\HOUDA\Documents\workspace-spring\artisan\.metadata\.plugins\org.eclipse.jdt.core
+3332893773.index

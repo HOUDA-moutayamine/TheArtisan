@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" >
+<title>THE ARTISAN</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		  <div class="container-fluid">
+		  <img class="me-1 ms-3 brand" th:src="@{/images/logo.png}" width="55px" height="55px" />
+		    <a class="navbar-brand mt-1" style="color:#a04e46;" th:href="@{/}"><b>The Artisan</b></a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		      <ul class="navbar-nav me-auto mb-2 mb-lg-1">
+		        <li class="nav-item ms-3">
+		          <a class="nav-link active" style="color:#b97468;" aria-current="page" th:href="@{/}"><b>Acceuil</b></a>
+		        </li>
+		        <li class="nav-item ms-3">
+		          <a class="nav-link " style="color:#bea289;" aria-current="page" th:href="@{/decouvrir}"><b>Decouvrir</b></a>
+		        </li>
+		        <li class="nav-item ms-3">
+		          <a class="nav-link " style="color:#bea289;" aria-current="page" th:href="@{/Categories}"><b>Categories</b></a>
+		        </li>
+		        <li class="nav-item ms-3">
+		          <a class="nav-link " style="color:#bea289;" aria-current="page" th:href="@{/contact}"><b>Contact</b></a>
+		        </li>
+	          </ul>
+	          <div class="d-flex">
+	          <a th:href="@{/cart}"><img class="me-3" th:src="@{/images/cart.png}" width="28px" height="28px" /></a>
+	          <a th:href="@{/favoris}"><img class="me-3 mt-1" th:src="@{/images/add-to-favorites.png}" width="20px" height="20px"/></a>
+	          <img class="me-3" th:src="@{/images/user.png}" width="30px" height="30px" />
+	          <li class="nav-item dropdown " style="list-style: none; margin-left:-15px;" >
+		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            <B th:text="${user.name}" ></B>
+		          </a>
+		          <ul class="dropdown-menu">
+		            <li><a class="dropdown-item" href="#">Votre Profile</a></li>
+		            <li><a class="dropdown-item" th:href="@{/logout}">se déconnecter</a></li> 
+		          </ul>
+		       </li>
+	          
+	          </div>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+	<div class="float-end "><a th:href="@{chatwith{to} (to= ${user.name})}">
+	   <h5 class="p-3 pe-1 pt-4 pb-4 fs-4 shadow" style="cursor:pointer;margin-right:0px;margin-top:380%;border-top-left-radius:25px;border-bottom-left-radius:25px;writing-mode: vertical-rl;background:#d9d9d9;text-orientation: mixed;">Messagerie 
+	   	<svg xmlns="http://www.w3.org/2000/svg" class="me-2" style="transform: rotate(90deg);" width="35" height="35" viewBox="0 0 24 24" fill="none">
+		<path d="M17 21.25H7C3.35 21.25 1.25 19.15 1.25 15.5V8.5C1.25 4.85 3.35 2.75 7 2.75H17C20.65 2.75 22.75 4.85 22.75 8.5V15.5C22.75 19.15 20.65 21.25 17 21.25ZM7 4.25C4.14 4.25 2.75 5.64 2.75 8.5V15.5C2.75 18.36 4.14 19.75 7 19.75H17C19.86 19.75 21.25 18.36 21.25 15.5V8.5C21.25 5.64 19.86 4.25 17 4.25H7Z" fill="#292D32"/>
+		<path d="M11.9988 12.87C11.1588 12.87 10.3088 12.61 9.6588 12.08L6.5288 9.57997C6.2088 9.31997 6.14881 8.84997 6.4088 8.52997C6.66881 8.20997 7.13881 8.14997 7.45881 8.40997L10.5888 10.91C11.3488 11.52 12.6388 11.52 13.3988 10.91L16.5288 8.40997C16.8488 8.14997 17.3288 8.19997 17.5788 8.52997C17.8388 8.84997 17.7888 9.32997 17.4588 9.57997L14.3288 12.08C13.6888 12.61 12.8388 12.87 11.9988 12.87Z" fill="#ab7c50"/>
+		</svg>
+	   </h5></a>
+	</div>
+	<div class="part2 text-center pb-4" style="background-image: url('images/acc.jpeg');">
+	  <div style="padding-top:25px;padding-left:690px;"><h5 style=" background-image: radial-gradient(#f3dfd2 60%, transparent 80%);height: 30px;width: 500px;"> <span style="color:#a04e46;" ><b>The Artisan ,V</span>otre magasin d'artisanat marocain</b></h5></div>
+	  <a class="btn fs-4 mt-2 fw-semibold " th:href="@{/decouvrir}" style="background:#ab7c50;width:9%; color:#f3dfd2;">Découvrir</a>
+	</div>
+	<div class="container mt-5 ">
+		<div class="row  justify-content-center">
+		  <div class="col-8 mt-5 ">
+		  	<h2 style="color:#9f4841;"><b>Décoration d'intérieur dédiée à l'artisanat marocain</b></h2>
+		    <br>
+		    <p class="fw-semibold" style="font-size:1.7rem;"> The Artisan sélectionne et crée avec ses artisans marocains des objets de décoration, résultat d'une rencontre entre l'authenticité et les tendances actuelles.</p>
+		  </div>
+		  <div class="col-3 text-center ms-5">
+		    <img  th:src="@{images/1.jpeg}" width="290px" height="340px" />
+		  </div>
+		</div>
+		<div class="row ms-1 justify-content-center ">
+		  <div class="col-3 text-center me-5">
+		    <img  th:src="@{images/2.jpeg}" width="290px" height="340px" />
+		  </div>
+		  <div class="col-8 mt-5 ms-5 ">
+		  	<h2 style="color:#9f4841;"><b>Nos Produits</b></h2>
+		    <br>
+		    <p class="fw-semibold" style="font-size:1.7rem;"> Tous nos articles sont fabriqués à la main au Maroc. Nous sélectionnons sur place nos coups de coeur et faisons prendre vie à nos créations lors de nos voyages.</p>
+		  </div>
+		</div>
+	</div>
+	<section>
+	  <div class=" mt-5 mb-5" >
+	  
+	    <div class="pt-5" style="background-image:url('images/wave3.png'); background-repeat: no-repeat; 
+	    background-size:100%;" >
+	      <img class="mt-2" th:src="@{images/wave.png}" width=100% /> 
+	    </div>
+	    <div class="pb-3 pt-2 text-center" style="background:#d9c9b2;">
+	      <h2 style="color:#9f4841;"><b>Témoignages</b></h2>
+	      <div id="carouselExampleInterval" class="carousel slide mt-5 mb-5" data-bs-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active" data-bs-interval="10000">
+			      <p class="d-block w-100 fw-semibold" style="font-size:1.7rem;">"Très positivement impressionné par la qualité des produits, la qualité du service et la gentillesse des gérants.<br>Service de livraison très rapide avec emballage trés sécurisé et de gentils mots dedans."<br><b>Francois belnatd</b></p>
+			    </div>
+			    <div class="carousel-item" data-bs-interval="2000">
+			      <p class="d-block w-100 fw-semibold" style="font-size:1.7rem;">"Très positivement impressionné par la qualité des produits, la qualité du service et la gentillesse des gérants.<br>Service de livraison très rapide avec emballage trés sécurisé et de gentils mots dedans."<br><b>Francois belnatd</b></p>
+			    </div>
+			    <div class="carousel-item">
+			      <p class="d-block w-100 fw-semibold" style="font-size:1.7rem;">"Très positivement impressionné par la qualité des produits, la qualité du service et la gentillesse des gérants.<br>Service de livraison très rapide avec emballage trés sécurisé et de gentils mots dedans."<br><b>Francois belnatd</b></p>
+			    </div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+	    </div>
+	    <div class="pb-5" style="margin-top:-1%; background-image:url('images/wave2.png'); background-repeat: no-repeat; 
+	    background-size:100%;" >
+	     <img  th:src="@{images/wave1.png}" width=100% />
+	    </div>
+	  </div>
+	  <div class="row text-center mt-5 pt-3 pb-5">
+	    <div class="col-3"><img th:src="@{images/img4.jpeg}"/></div>
+	    <div class="col-3"><img th:src="@{images/img3.jpeg}"/></div>
+	    <div class="col-3"><img th:src="@{images/img2.jpeg}"/></div>
+	    <div class="col-3"><img th:src="@{images/img1.jpeg}"/></div>
+	  </div>
+	</section>
+	<footer class="mt-5 text-center" >	
+	    <img th:src="@{images/wave4.png}" style="margin-bottom:-1%;" width=100%/>
+	    <img style="margin-top:-3%;margin-bottom:-1.75%;" th:src="@{images/wave5.png}" width=100%/>
+	    <img style="margin-top:-3.5%;margin-bottom:-1.5%;" th:src="@{images/wave6.png}" width=100%/>
+	    <h5 style="margin-top:-3%;">The Artisan | copyright 2023</h5>
+	    </div>
+	</footer>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+</body>
+</html>
